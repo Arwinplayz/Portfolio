@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Projects - Arwin Silpakar</title>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Arwin Silpakar</h1>
+      <p>Student developer • Robotics, Electronics & Software Integration</p>
+    </div>
+
+    <nav class="nav-tabs">
+      <a href="index.html">Home</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="projects.html" class="active">Projects</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Contact ▾</button>
+        <div class="dropdown-content">
+          <a href="https://www.instagram.com/arwinplayz/">Instagram</a>
+          <a href="https://discord.com/users/721959211558240302" target="_blank">Discord</a>
+          <a href="https://www.linkedin.com/in/arwin-silpakar-9774b2388/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Robotics Projects</h2>
+      <p>I've recently gotten into robotics. For so long I've been fascinated by computers but never really got to do anything with my facination. That's when I joined EMU Robotics and I felt like I just belonged there. Everyone there liked the same things I liked and I have learnt so much from them. I also started a FTC team at my own school which surprisingly made it to nationals. For the 2026 FRC season, I've luckily been offered to go to New York to compete which will be a wonderful opportunity for me to learn and connect.</p>
+    </section>
+
+    <section class="robotics-collage">
+      <div class="collage-grid">
+        <div class="collage-item large"><img src="images/robot1.jpg" alt="Robot 1"></div>
+        <div class="collage-item small"><img src="images/robot2.jpg" alt="Robot 2"></div>
+        <div class="collage-item medium"><img src="images/robot3.jpg" alt="Robot 3"></div>
+        <div class="collage-item medium"><img src="images/robot4.jpg" alt="Robot 4"></div>
+        <div class="collage-item small"><img src="images/robot5.jpg" alt="Robot 5"></div>
+        <div class="collage-item large"><img src="images/robot6.jpg" alt="Robot 6"></div>
+        <div class="collage-item small"><img src="images/robot7.jpg" alt="Robot 7"></div>
+        <div class="collage-item medium"><img src="images/robot8.jpg" alt="Robot 8"></div>
+        <div class="collage-item large"><img src="images/robot9.jpg" alt="Robot 9"></div>
+        <div class="collage-item small"><img src="images/robot10.jpg" alt="Robot 10"></div>
+        <div class="collage-item medium"><img src="images/robot11.jpg" alt="Robot 11"></div>
+        <div class="collage-item small"><img src="images/robot12.jpg" alt="Robot 12"></div>
+        <div class="collage-item large"><img src="images/robot13.jpg" alt="Robot 13"></div>
+        <div class="collage-item medium"><img src="images/robot14.jpg" alt="Robot 14"></div>
+        <div class="collage-item small"><img src="images/robot15.jpg" alt="Robot 15"></div>
+        <div class="collage-item medium"><img src="images/robot16.jpg" alt="Robot 16"></div>
+        <div class="collage-item large"><img src="images/robot17.jpg" alt="Robot 17"></div>
+        <div class="collage-item small"><img src="images/robot18.jpg" alt="Robot 18"></div>
+        <div class="collage-item medium"><img src="images/robot19.jpg" alt="Robot 19"></div>
+        <div class="collage-item small"><img src="images/robot20.jpg" alt="Robot 20"></div>
+      </div>
+   </section>
+
+
+    <section>
+      <h2>GitHub Projects</h2>
+      <div id="repos" class="grid"></div>
+    </section>
+
+    <section class="github-link">
+      <p>See more projects on my GitHub:</p>
+      <a class="btn accent" href="https://github.com/Arwinplayz" target="_blank">Visit GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <p>© 2025 Arwin Silpakar</p>
+      </div>
+      <div class="footer-center">
+        <a class="footer-link" href="index.html">Home</a>
+        <a class="footer-link" href="achievements.html">Achievements</a>
+        <a class="footer-link" href="projects.html">Projects</a>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="https://github.com/Arwinplayz" target="_blank">GitHub</a>
+        <a class="footer-link" href="https://www.instagram.com/arwinplayz/" target="_blank">Instagram</a>
+        <a class="footer-link" href="https://discord.com/users/721959211558240302" target="_blank">Discord</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/arwin-silpakar-9774b2388/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const orderedRepos = [
+    "Custom-Devboard",
+    "Split-Keyboard",
+    "Rocket-Flight-Controller",
+    "Numpad",
+    "Maison-D-Drive"
+    ];
+
+        const repoImages = {
+    "Rocket-Flight-Controller": "images/Rocket-Flight-Controller.png",
+    "Maison-D-Drive": "images/Maison-D-Drive.png",
+    "Custom-Devboard": "images/Custom-Devboard.png",
+    "Split-Keyboard": "images/Split-Keyboard.png",
+    "Numpad": "images/Numpad.png"
+    };
+
+    const username = 'Arwinplayz';
+    fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+    .then(r => r.json())
+    .then(repos => {
+        const el = document.getElementById('repos');
+
+        orderedRepos.forEach(name => {
+        const repo = repos.find(r => r.name === name);
+        if (!repo) return;
+
+        const imgSrc = repoImages[name] || "images/default.jpg";
+        const card = document.createElement('div');
+        card.className = 'repo-card';
+        card.innerHTML = `
+            <img src="${imgSrc}" alt="${repo.name} screenshot" />
+            <h3>${repo.name}</h3>
+            <p>${repo.description || 'No description.'}</p>
+            <a class="btn" href="${repo.html_url}" target="_blank">View</a>
+        `;
+        el.appendChild(card);
+        });
+    });
+
+  </script>
+
+  <script>
+    const track = document.querySelector('.scroll-track');
+    const wrapper = document.querySelector('.scroll-wrapper');
+
+    track.innerHTML += track.innerHTML;
+
+    let scrollPos = 0;
+    const speed = 1; 
+    let isPaused = false;
+    function scrollLoop() {
+    if (!isPaused) {
+        scrollPos += speed;
+        if (scrollPos >= track.scrollWidth / 2) { 
+        scrollPos = 0;
+        }
+        track.style.transform = `translateX(-${scrollPos}px)`;
+    }
+    requestAnimationFrame(scrollLoop);
+    }
+    scrollLoop();
+    wrapper.addEventListener('mouseenter', () => isPaused = true);
+    wrapper.addEventListener('mouseleave', () => isPaused = false);
+
+</script>
+
+</body>
+</html>
