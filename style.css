@@ -23,8 +23,10 @@ html {
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1200px 600px at 20% -10%, #0b2a3a, transparent), var(--bg);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, #0b2a3a, transparent),
+    var(--bg);
   color: var(--text);
 }
 
@@ -51,7 +53,6 @@ header {
   font-size: 0.9rem;
 }
 
-/* Navigation */
 .nav-tabs {
   display: flex;
   gap: 24px;
@@ -71,7 +72,6 @@ header {
   background: rgba(56, 189, 248, 0.2);
 }
 
-/* CTA Buttons */
 .cta {
   display: flex;
   gap: 12px;
@@ -90,12 +90,12 @@ header {
 
 .btn:hover {
   transform: translateY(-2px);
-  background: rgba(14,165,233,0.2);
+  background: rgba(14, 165, 233, 0.2);
 }
 
 .btn.accent {
   border-color: #0ea5e9;
-  box-shadow: 0 0 0 1px rgba(14,165,233,0.2) inset;
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.2) inset;
 }
 
 /* =========================
@@ -143,7 +143,7 @@ section {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--accent);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .about-content::after {
@@ -164,17 +164,11 @@ section {
   display: flex;
   gap: 16px;
 }
-.card {
-  flex-shrink: 0;
-}
-
-
-
 
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   width: 280px;
   flex-shrink: 0;
   padding: 16px;
@@ -185,8 +179,8 @@ section {
 }
 
 .card:hover {
-  border-color: rgba(56,189,248,0.5);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .pill-row {
@@ -202,7 +196,6 @@ section {
   border: 1px solid #1f2937;
   color: var(--muted);
 }
-
 
 /* =========================
    GITHUB PROJECTS
@@ -224,7 +217,7 @@ section {
 
 .repo-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
 }
 
 .repo-card img {
@@ -244,14 +237,9 @@ section {
    GOFUNDME
 ========================= */
 
-#gofundme h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  font-size: clamp(28px, 5vw, 36px);
-}
-
 .gofundme-banner {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
@@ -262,50 +250,66 @@ section {
 }
 
 .gofundme-banner img {
-  height: 600px;
-  width: auto;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   object-fit: cover;
   border-radius: 12px;
 }
 
 .gofundme-text {
-  position: relative;
-  height: 600px;
   max-width: 600px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: left;
 }
 
-.gofundme-description p {
-  color: var(--muted);
-  line-height: 1.6;
-  margin: 0;
-}
-
 .gofundme-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  margin-top: 1.5rem;
+  display: flex;
 }
 
 .gofundme-button .btn.accent {
   padding: 14px 22px;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow:
-    0 0 0 1px rgba(14,165,233,0.5),
-    0 12px 30px rgba(14,165,233,0.45);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.5),
+    0 12px 30px rgba(14, 165, 233, 0.45);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gofundme-button .btn.accent:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 0 0 1px rgba(14,165,233,0.8),
-    0 18px 45px rgba(14,165,233,0.75);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.8),
+    0 18px 45px rgba(14, 165, 233, 0.75);
 }
 
+#gofundme h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: clamp(28px, 5vw, 36px);
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .gofundme-banner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .gofundme-text {
+    justify-content: center;
+  }
+
+  .gofundme-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 /* =========================
    FOOTER
@@ -361,7 +365,7 @@ footer {
   position: absolute;
   background-color: var(--card);
   min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   z-index: 1;
   flex-direction: column;
@@ -391,7 +395,7 @@ footer {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .hero h1 {
@@ -425,13 +429,13 @@ footer {
   width: calc(33% - 20px);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .achievement-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .achievement-card img {
@@ -470,11 +474,11 @@ footer {
 
 .github-link {
   text-align: center;
-  margin: 40px 0; 
+  margin: 40px 0;
 }
 
 .github-link p {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 
 .github-link .btn {
@@ -491,7 +495,7 @@ footer {
 }
 
 .collage-grid {
-  column-count: 4; 
+  column-count: 4;
   column-gap: 10px;
 }
 
@@ -503,19 +507,31 @@ footer {
 
 .collage-item img {
   width: 100%;
-  height: auto; 
+  height: auto;
   border-radius: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .collage-item img:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 1200px) { .collage-grid { column-count: 3; } }
-@media (max-width: 800px) { .collage-grid { column-count: 2; } }
-@media (max-width: 500px) { .collage-grid { column-count: 1; } }
+@media (max-width: 1200px) {
+  .collage-grid {
+    column-count: 3;
+  }
+}
+@media (max-width: 800px) {
+  .collage-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 500px) {
+  .collage-grid {
+    column-count: 1;
+  }
+}
 
 .collage-item.small {
   grid-row: span 1;
@@ -532,12 +548,14 @@ footer {
   grid-column: span 2;
 }
 
-
-
 /* =========================
    ANIMATION
 ========================= */
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-200%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
 }
